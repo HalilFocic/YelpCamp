@@ -6,3 +6,7 @@ It covers fields like:
 -mongoose
 -middleware
 -authorization
+-authentication
+-cookies
+-hashing passwords
+-security
