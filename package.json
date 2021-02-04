@@ -1,26 +1,19 @@
 {
-  "name": "yelpcamp",
+  "name": "YelpCamp",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HalilFocic/YelpCamp.git"
-  },
-  "author": "Halil Focic",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HalilFocic/YelpCamp/issues"
-  },
-  "homepage": "https://github.com/HalilFocic/YelpCamp#readme",
   "dependencies": {
     "ejs": "^3.1.5",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.11.15"
+    "mongoose": "^5.10.4"
   }
 }
