@@ -11,9 +11,10 @@ const campgrounds = require("../controllers/campgrounds");
 // Main page for campgrounds
 router.get("/", catchAsync(campgrounds.index));
 
-//Route to make new campgrounds
+//Route to render form for making new campground
 router.get("/new", isLoggedIn, campgrounds.renderNewForm);
 
+//Route to post a request to make new campground
 router.post(
   "/",
   isLoggedIn,
@@ -32,33 +33,21 @@ router.get(
   catchAsync(campgrounds.renderEditForm)
 );
 
+//route to send request to edit campground
 router.put(
   "/:id",
   isLoggedIn,
   isAuthor,
   validateCampground,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const campground = await Campground.findByIdAndUpdate(id, {
-      ...req.body.campground,
-    });
-    req.flash("success", "Successfully updated campground");
-
-    res.redirect(`/campgrounds/${campground._id}`);
-  })
+  catchAsync(campgrounds.updateCampground)
 );
 
+// Route to delete specific campground
 router.delete(
   "/:id",
   isLoggedIn,
   isAuthor,
-  catchAsync(async (req, res) => {
-    const { id } = req.params;
-    await Campground.findByIdAndDelete(id);
-    req.flash("success", "Successfully deleted campground!");
-
-    res.redirect("/campgrounds");
-  })
+  catchAsync(campgrounds.deleteCampground)
 );
 
 module.exports = router;
