@@ -10,10 +10,8 @@ const { reviewSchema } = require("../schemas.js");
 const { validateReview, isLoggedIn, isReviewAuthor } = require("../middleware");
 const reviews = require("../controllers/reviews");
 
-//Route for making a new review
 router.post("/", isLoggedIn, validateReview, catchAsync(reviews.createReview));
 
-//Route for deleting a specific review
 router.delete(
   "/:reviewId",
   isLoggedIn,
