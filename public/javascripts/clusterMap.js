@@ -1,7 +1,7 @@
 mapboxgl.accessToken = mapToken;
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/mapbox/dark-v10",
+  style: "mapbox://styles/mapbox/light-v10",
   center: [-103.59179687498357, 40.66995747013945],
   zoom: 3,
 });
@@ -24,13 +24,13 @@ map.on("load", function () {
       "circle-color": [
         "step",
         ["get", "point_count"],
-        "#51bbd6",
-        100,
-        "#f1f075",
-        750,
-        "#f28cb1",
+        "#00BCD4",
+        10,
+        "#2196F3",
+        30,
+        "#3F51B5",
       ],
-      "circle-radius": ["step", ["get", "point_count"], 20, 100, 30, 750, 40],
+      "circle-radius": ["step", ["get", "point_count"], 15, 10, 20, 30, 25],
     },
   });
 
@@ -79,14 +79,8 @@ map.on("load", function () {
 
   map.on("click", "unclustered-point", function (e) {
     var coordinates = e.features[0].geometry.coordinates.slice();
-    var mag = e.features[0].properties.mag;
-    var tsunami;
 
-    if (e.features[0].properties.tsunami === 1) {
-      tsunami = "yes";
-    } else {
-      tsunami = "no";
-    }
+    const text = e.features[0].properties.popUpMarkup;
 
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
@@ -94,7 +88,7 @@ map.on("load", function () {
 
     new mapboxgl.Popup()
       .setLngLat(coordinates)
-      .setHTML("magnitude: " + mag + "<br>Was there a tsunami?: " + tsunami)
+      .setHTML(`<h3>${text}</h3>`)
       .addTo(map);
   });
 
