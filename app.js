@@ -17,6 +17,8 @@ const User = require("./models/user");
 const campgroundRoutes = require("./routes/campgrouds");
 const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/users");
+
+const mongoSanitize = require("express-mongo-sanitize");
 mongoose.connect("mongodb://localhost:27017/yelp-camp", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -37,6 +39,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(mongoSanitize());
 const sessionConfig = {
   secret: "thisshouldbeabettersecret",
   resave: false,
