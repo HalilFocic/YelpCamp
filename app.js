@@ -19,6 +19,7 @@ const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/users");
 
 const mongoSanitize = require("express-mongo-sanitize");
+//const dbUrl = process.env.DB_URL;
 mongoose.connect("mongodb://localhost:27017/yelp-camp", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -41,11 +42,13 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize());
 const sessionConfig = {
+  name: "session",
   secret: "thisshouldbeabettersecret",
   resave: false,
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
+    // secure:true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
