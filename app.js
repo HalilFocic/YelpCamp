@@ -19,11 +19,11 @@ const reviewRoutes = require("./routes/reviews");
 const userRoutes = require("./routes/users");
 
 const mongoSanitize = require("express-mongo-sanitize");
-//const dbUrl = process.env.DB_URL;
 
+const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
 const MongoStore = require("connect-mongo").default;
 
-mongoose.connect("mongodb://localhost:27017/yelp-camp", {
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
@@ -44,15 +44,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize());
+const secret = process.env.SECRET || "thisshouldbeabettersecret";
 
 const sessionConfig = {
   store: MongoStore.create({
-    mongoUrl: "mongodb://localhost:27017/yelp-camp",
-    touchAfter: 24 * 3600,
-    secret: "thisshouldbeabettersecret",
+    mongoUrl: dbUrl,
+    secret,
+    touch: 24 * 3600,
   }),
   name: "session",
-  secret: "thisshouldbeabettersecret",
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
