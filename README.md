@@ -10,3 +10,7 @@ It covers fields like:
 -cookies
 -hashing passwords
 -security
+-mapbox
+
+# NOTE: 
+### This will not work unless you have env file added with matching API Keys
