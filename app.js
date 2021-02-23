@@ -20,6 +20,9 @@ const userRoutes = require("./routes/users");
 
 const mongoSanitize = require("express-mongo-sanitize");
 //const dbUrl = process.env.DB_URL;
+
+const MongoStore = require("connect-mongo").default;
+
 mongoose.connect("mongodb://localhost:27017/yelp-camp", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -41,7 +44,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize());
+
 const sessionConfig = {
+  store: MongoStore.create({
+    mongoUrl: "mongodb://localhost:27017/yelp-camp",
+    touchAfter: 24 * 3600,
+    secret: "thisshouldbeabettersecret",
+  }),
   name: "session",
   secret: "thisshouldbeabettersecret",
   resave: false,
