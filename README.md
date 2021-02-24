@@ -12,3 +12,16 @@ You can:
 	-view map for campgrounds shared around the world
 
 
+Topics learned by making this project:
+	-Backend development
+	-Express Router
+	-Hashing
+	-Sanitizing requests
+	-Preventing mongo injection
+	-Authorization & Authentication
+	-ejs templates
+	-mapbox & cloudinary apis
+
+
+
+
