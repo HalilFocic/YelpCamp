@@ -12,14 +12,14 @@ You can:
 
 
 Topics learned by making this project:
-	-Backend development
-	-Express Router
-	-Hashing
-	-Sanitizing requests
-	-Preventing mongo injection
-	-Authorization & Authentication
-	-ejs templates
-	-mapbox & cloudinary apis
+	* Backend development
+	* Express Router
+	* Hashing
+	* Sanitizing requests
+	* Preventing mongo injection
+	* Authorization & Authentication
+	* ejs templates
+	* mapbox & cloudinary apis
 
 ### This will not work unless you have env file added with matching API Keys
 
