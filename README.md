@@ -1,6 +1,5 @@
 # YelpCamp
 
-
 ## Tools 
 #### This project was built using NodeJS
 
@@ -22,6 +21,5 @@ Topics learned by making this project:
 	-ejs templates
 	-mapbox & cloudinary apis
 
-
-
+### This will not work unless you have env file added with matching API Keys
 
