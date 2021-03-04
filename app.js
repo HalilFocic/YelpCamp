@@ -36,6 +36,7 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
+//-=-=-=-=-=-= APP MIDDLEWARE -=-=-=-=-=-=-=-=-=
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -79,7 +80,9 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+//-=-=-=-=-=--=- END OF APP MIDDLEWARE-=-=-=-=-=-=-=
 
+// -=-=-=-=-=-=-=-=- ROUTES -=-=-=-=-=-=-=-=-=-=-=
 app.get("/fakeUser", async (req, res) => {
   const user = new User({
     email: "testmail@gmail.com",
