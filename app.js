@@ -83,14 +83,6 @@ app.use((req, res, next) => {
 //-=-=-=-=-=--=- END OF APP MIDDLEWARE-=-=-=-=-=-=-=
 
 // -=-=-=-=-=-=-=-=- ROUTES -=-=-=-=-=-=-=-=-=-=-=
-app.get("/fakeUser", async (req, res) => {
-  const user = new User({
-    email: "testmail@gmail.com",
-    username: "testuser",
-  });
-  const newUser = await User.register(user, "chicken");
-  res.send(newUser);
-});
 
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
