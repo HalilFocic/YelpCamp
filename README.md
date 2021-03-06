@@ -1,25 +1,27 @@
 # YelpCamp
 
 ## Tools 
-#### This project was built using NodeJS
+ This project was built using NodeJS
 
 ## Concept
 YelpCamp is an application for sharing your favorite campgrounds.
 You can:
-	-create(share) campground
-	-leave a review for campground
-	-view map for campgrounds shared around the world
+	   1. create(share) campground
+	   2. leave a review for campground
+	   3. view map for campgrounds shared around the world
 
 
-Topics learned by making this project:
-	* Backend development
-	* Express Router
-	* Hashing
-	* Sanitizing requests
-	* Preventing mongo injection
-	* Authorization & Authentication
-	* ejs templates
-	* mapbox & cloudinary apis
+Topics learned by making this project
+- Backend development
+- Express Router
+- Hashing
+- Sanitizing requests
+- Preventing mongo injection
+- Authorization & Authentication
+- ejs templates
+- mapbox & cloudinary apis
 
-### This will not work unless you have env file added with matching API Keys
+
+## WARNING
+This will not work unless you have env file added with matching API Keys
 
