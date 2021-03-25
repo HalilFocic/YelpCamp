@@ -18,7 +18,6 @@ Topics learned by making this project
 - Sanitizing requests
 - Preventing mongo injection
 - Authorization & Authentication
-- ejs templates
 - mapbox & cloudinary apis
 
 
